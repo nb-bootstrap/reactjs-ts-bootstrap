@@ -25,7 +25,7 @@
         "./src/*"
       ],
       "@hooks": [
-        "./src/services/hooks"
+        "./src/services"
       ],
       "@declaration": [
         "./src/declaration/index"

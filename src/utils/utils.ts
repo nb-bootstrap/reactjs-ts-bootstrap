@@ -1,15 +1,14 @@
 import { ReactElement } from 'react';
 import _ from 'lodash';
 
-
 /**
  * 合并class
- * @param classeNames 
- * @returns 
+ * @param classeNames
+ * @returns
  */
 export const mergeClasses = (...classeNames: string[]): string => {
     const _classNames: string[] = [];
-    classeNames.filter(o => !_.isEmpty(o)).forEach(o => _classNames.push(o));
+    classeNames.filter((o) => !_.isEmpty(o)).forEach((o) => _classNames.push(o));
     return _classNames.join(' ');
 };
 
@@ -58,4 +57,18 @@ export const iteratorNumTos = (num: number, consumer: (o: number, i: number) => 
         array.push(i);
     }
     return iteratorTos<number>(array, consumer);
+};
+
+/**
+ * 替换 class
+ * @param body  body元素
+ * @param className 类名
+ * @param removeClasses 移除的类名
+ */
+export const addClassName = (body: HTMLElement, className: string, removeClasses: string[] = []): void => {
+    const __classList = body.classList;
+    // 移除已经存在的class
+    removeClasses.forEach((o) => __classList.remove(o));
+    // 解析 classname
+    _.isEmpty(className) || __classList.add(className);
 };

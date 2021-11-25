@@ -17,7 +17,7 @@
     "axios": "^0.21.1",
     "decimal.js": "^10.3.1",
     "i18next": "^21.5.2",
-    "i18next-resources-to-backend": "^1.0.0",
+    "i18next-browser-languagedetector": "^6.1.2",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.33",
     "normalizr": "^3.6.1",

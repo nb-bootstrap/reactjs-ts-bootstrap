@@ -2,5 +2,6 @@
 {
     "singleQuote": true,
     "tabWidth": 4,
-    "bracketSameLine": true
+    "bracketSameLine": true,
+    "printWidth": 500
 }

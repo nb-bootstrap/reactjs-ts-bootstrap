@@ -1,9 +1,10 @@
 /* eslint-disable no-param-reassign */
 // craco.config.js
-const path = require("path");
+const path = require('path');
 const CracoLessPlugin = require('craco-less');
-const { loaderByName } = require("@craco/craco");
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { loaderByName } = require('@craco/craco');
+const BundleAnalyzerPlugin =
+    require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const WebpackBar = require('webpackbar');
 const PRODUCTION = 'production';
 
@@ -11,7 +12,6 @@ const webpackPlugins = [new WebpackBar()];
 if (process.env.REACT_APP_ANY === 'true') {
     webpackPlugins.push(new BundleAnalyzerPlugin());
 }
-
 
 module.exports = {
     plugins: [
@@ -33,7 +33,7 @@ module.exports = {
                         // }
                         // return fs.readFileSync('./src/styles/variables.less') + content;
                         return content;
-                    }
+                    },
                 },
                 modifyLessRule(lessRule, context) {
                     // You have to exclude these file suffixes first,
@@ -46,37 +46,46 @@ module.exports = {
                     lessModuleRule.test = /\.m\.less$/;
 
                     // Configure the generated local ident name.
-                    const cssLoader = lessModuleRule.use.find(loaderByName("css-loader"));
+                    const cssLoader = lessModuleRule.use.find(
+                        loaderByName('css-loader')
+                    );
                     cssLoader.options.modules = {
-                        localIdentName: context.env == PRODUCTION ? "[hash:base64]" : "[path][name]__[local]",
+                        localIdentName:
+                            context.env == PRODUCTION
+                                ? '[hash:base64]'
+                                : '[path][name]__[local]',
                     };
 
                     return lessModuleRule;
                 },
-            }
-        }
+            },
+        },
     ],
     webpack: {
         configure: (webpackConfig, { env, paths }) => {
             if (env === PRODUCTION) {
                 webpackConfig.devtool = false;
-                const TerserPlugin = webpackConfig.optimization.minimizer.find((i) => i.constructor.name === 'TerserPlugin');
+                const TerserPlugin = webpackConfig.optimization.minimizer.find(
+                    (i) => i.constructor.name === 'TerserPlugin'
+                );
                 if (TerserPlugin) {
-                    TerserPlugin.options.terserOptions.compress['drop_console'] = true;
+                    TerserPlugin.options.terserOptions.compress[
+                        'drop_console'
+                    ] = true;
                     // TerserPlugin.options.terserOptions.compress['remove']
                 }
             }
             return webpackConfig;
         },
         alias: {
-            "@": path.resolve(__dirname, "./src"),
-            "@hooks": path.resolve(__dirname, "./src/services/hooks"),
-            "@reducers": path.resolve(__dirname, "./src/services/reducers"),
-            "@declaration": path.resolve(__dirname, "./src/declaration/index"),
-            "@utils": path.resolve(__dirname, "./src/utils/index"),
-            "@apis": path.resolve(__dirname, "./src/services/apis/index"),
-            "@config": path.resolve(__dirname, "./src/config/index")
+            '@': path.resolve(__dirname, './src'),
+            '@hooks': path.resolve(__dirname, './src/services'),
+            '@reducers': path.resolve(__dirname, './src/services/reducers'),
+            '@declaration': path.resolve(__dirname, './src/declaration'),
+            '@utils': path.resolve(__dirname, './src/utils'),
+            '@apis': path.resolve(__dirname, './src/services/apis'),
+            '@config': path.resolve(__dirname, './src/config'),
         },
-        plugins: webpackPlugins
-    }
+        plugins: webpackPlugins,
+    },
 };
