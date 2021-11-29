@@ -1,0 +1,61 @@
+/* defined media layout */
+.media-xs(@styles) {
+    @media (max-width: 575.98px) {
+        @styles();
+    }
+}
+
+.media-sm(@styles) {
+    @media (min-width: 576px) and (max-width: 767.98px) {
+        @styles();
+    }
+}
+
+.media-md(@styles) {
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        @styles();
+    }
+}
+
+.media-lg(@styles) {
+    @media (min-width: 992px) and (max-width: 119.98px) {
+        @styles();
+    }
+}
+
+.media-air(@styles) {
+    @media (min-width: 1280px) and (max-width: 1441px) and (max-height: 900px) {
+        @styles();
+    }
+}
+
+.media-xl(@styles) {
+    @media (min-width: 1200px) {
+        @styles();
+    }
+}
+
+.media-mobile(@styles) {
+    @media (max-width: 991.98px) {
+        @styles();
+    }
+}
+
+.media-desktop(@styles) {
+    @media (min-width: 992px) {
+        @styles();
+    }
+}
+
+.media-safari-bottom(@styles) {
+    :global(.safari-mobile-bottom) {
+        @media (max-width: 991.98px) {
+            @styles();
+        }
+    }
+}
+.media-image2x(@styles) {
+    @media (-webkit-min-device-pixel-ratio: 2) {
+        @styles();
+    }
+}
