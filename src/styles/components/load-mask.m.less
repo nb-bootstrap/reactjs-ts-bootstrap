@@ -1,0 +1,69 @@
+@import '../variables.less';
+
+.load-mask {
+    position: relative;
+
+    .masking {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        background-color: rgba(0, 0, 0, 0.3);
+        transition: opacity 0.5s ease-in-out;
+        opacity: 1;
+
+        img {
+            width: 167px;
+            height: 226px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -113px 0 0 -83px;
+            animation: hide 2s linear infinite;
+        }
+    }
+
+    .opacity {
+        visibility: hidden;
+    }
+
+    &.full-masking {
+        .masking {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+        }
+    }
+
+    &.animate {
+        .masking {
+            opacity: 0;
+        }
+    }
+
+    &.loading {
+        background-color: #000;
+    }
+
+    &.loaded {
+        .masking img {
+            animation: none;
+        }
+    }
+
+    @keyframes hide {
+        0% {
+            opacity: 0.2;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0.2;
+        }
+    }
+}

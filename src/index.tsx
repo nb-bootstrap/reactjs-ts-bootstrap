@@ -6,10 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import { store } from '@/services';
 import i18n from '@/i18n';
 import { I18nextProvider } from 'react-i18next';
+import PageLoadingMask from '@/components/page-loading/PageLoadingMask';
 ReactDOM.render(
     <I18nextProvider i18n={i18n}>
         <Provider store={store}>
             <App />
+            <PageLoadingMask />
         </Provider>
     </I18nextProvider>,
     document.getElementById('root')

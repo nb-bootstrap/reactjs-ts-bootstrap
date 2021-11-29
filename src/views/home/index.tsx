@@ -1,7 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 const Home = (): ReactElement => {
-
-    return (<>Home</>);
+    return <>IM Home</>;
 };
 
 export default Home;

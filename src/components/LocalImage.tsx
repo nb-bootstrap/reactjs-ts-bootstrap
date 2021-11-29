@@ -20,17 +20,17 @@ interface LocalImageProps {
 
 const LocalImage = ({ s2x = true, s3x = false, name, dir, type, onCompleted, onError, width, height, className, ...rest }: LocalImageProps): ReactElement => {
     const _type = !type ? 'svg' : type;
-    const _dir = (_type == 'svg' ? '/svg' : '/images') + (!dir ? '' : dir.startsWith('/') ? dir : '/' + dir);
+    const _dir = dir ? dir : '';
     const __srcset = useMemo(() => {
-        const __list = [`${loadImage(`.${dir}/${name}.${type}`)} 1x`];
+        const __list = [`${loadImage(`${_dir}/${name}.${type}`)} 1x`];
         if (type == 'svg') {
             return __list;
         }
         if (s2x) {
-            __list.push(`${loadImage(`.${dir}/${name}@2x.${type}`)} 2x`);
+            __list.push(`${loadImage(`${_dir}/${name}@2x.${type}`)} 2x`);
         }
         if (s3x) {
-            __list.push(`${loadImage(`.${dir}/${name}@3x.${type}`)} 3x`);
+            __list.push(`${loadImage(`${_dir}/${name}@3x.${type}`)} 3x`);
         }
         return __list;
     }, [s2x, s3x, type]);

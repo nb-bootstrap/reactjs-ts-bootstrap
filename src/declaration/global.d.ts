@@ -48,3 +48,13 @@ declare type UseDynamicImageImportOptions = {
     onCompleted?: (name: string, ImageIcon: React.FC<React.SVGProps<SVGSVGElement> | React.ImgHTMLAttributes<HTMLImageElement>> | undefined) => void;
     onError?: (err: Error) => void;
 };
+
+/**
+ * react route
+ */
+declare type ReactRoute = {
+    path: string;
+    component?: any;
+    redirect?: string;
+    children?: ReactRoute[];
+};
