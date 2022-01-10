@@ -20,3 +20,13 @@ export const LOCALE_NAMES = [
         id: 'ko_KR',
     },
 ] as { label: string; id: string }[];
+
+export const DEFAULT_CHAIN = {
+    chainId: 4,
+    name: 'Rinkeby',
+    explorer: 'https://rinkeby.etherscan.io',
+    f3kController: '0xFD930b7F7180Ab2DE0f9a9Fe1cB2F7eE61530ab5',
+    env: 'TEST',
+    rpcUrl: 'https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+    confirm: 1,
+} as WalletChain;
