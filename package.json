@@ -36,6 +36,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
+    "build:test":"profile=test node test/env.js && npm run build && node test/env.back.js",
+    "build:prod":"profile=prod node test/env.js && npm run build && node test/env.back.js",
     "test": "craco test",
     "eject": "craco eject"
   },
