@@ -72,3 +72,26 @@ export const addClassName = (body: HTMLElement, className: string, removeClasses
     // 解析 classname
     _.isEmpty(className) || __classList.add(className);
 };
+
+/**
+ * addres sensitive
+ * @param addr
+ * @returns
+ */
+export const sensitiveAddress = (addr: string | undefined | null): string => {
+    if (!addr) {
+        return '';
+    }
+    return addr.substring(0, 6) + '...' + addr.substring(addr.length - 4);
+};
+
+/**
+ * switch network
+ * @param chainId
+ */
+export const switchNetwork = async (chainId: number): Promise<any> => {
+    await window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: `0x${chainId.toString(16)}` }], // chainId must be in hexadecimal numbers
+    });
+};

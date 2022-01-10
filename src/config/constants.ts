@@ -21,12 +21,16 @@ export const LOCALE_NAMES = [
     },
 ] as { label: string; id: string }[];
 
+/**
+ * default chain properties
+ */
 export const DEFAULT_CHAIN = {
-    chainId: 4,
-    name: 'Rinkeby',
-    explorer: 'https://rinkeby.etherscan.io',
-    f3kController: '0xFD930b7F7180Ab2DE0f9a9Fe1cB2F7eE61530ab5',
-    env: 'TEST',
-    rpcUrl: 'https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
-    confirm: 1,
+    chainId: process.env.REACT_APP_CHAIN_ID ? parseInt(process.env.REACT_APP_CHAIN_ID) : 1,
+    name: process.env.REACT_APP_CHAIN_NAME ? process.env.REACT_APP_CHAIN_NAME : 'Ethereum',
+    explorer: process.env.REACT_APP_CHAIN_EXPLORER ? 'https://etherscan.io' : process.env.REACT_APP_CHAIN_EXPLORER,
+    env: process.env.REACT_APP_ENV ? process.env.REACT_APP_ENV : 'TEST',
+    rpcUrl: process.env.REACT_APP_CHAIN_RPC_URL ? 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161' : process.env.REACT_APP_CHAIN_RPC_URL,
+    confirm: process.env.REACT_APP_CHAIN_CONFIRM ? parseInt(process.env.REACT_APP_CHAIN_CONFIRM) : 3,
 } as WalletChain;
+
+export const NetworkContextName = 'NETWORK';

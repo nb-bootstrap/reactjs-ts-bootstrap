@@ -1,12 +1,12 @@
 import { useTranslation, useWallet } from '@/services';
 import { Button, notification } from 'antd';
 import { ReactElement } from 'react';
-import styles from '@/styles/market/wallet.m.less';
+import styles from '@/styles/components/wallet.m.less';
 import { CopyOutlined } from '@ant-design/icons';
 
 const Connected = ({ toUnlink }: { toUnlink: () => void }): ReactElement => {
     const { address } = useWallet();
-    const { t } = useTranslation('market', 'header.wallet');
+    const { t } = useTranslation('wallet', 'header.wallet');
     const _copyAddress = () => {
         navigator.clipboard.writeText(address);
         notification.success({ message: t('copy-success') });

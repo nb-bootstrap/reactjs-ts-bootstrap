@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
-import Image from '@/components/Image';
+import Image from '@/components/LocalImage';
 import { WALLETS_CONNECTORS } from '../connectors';
 import { iteratorTo } from '@/utils';
-import styles from '@/styles/market/wallet.m.less';
+import styles from '@/styles/components/wallet.m.less';
 import _ from 'lodash';
 const Unconnected = ({ toLink }: { toLink: (name: string) => void }): ReactElement => {
     const __gotoConnect = (link: string) => {
@@ -15,7 +15,7 @@ const Unconnected = ({ toLink }: { toLink: (name: string) => void }): ReactEleme
             return (
                 <div key={o.name}>
                     <p className={styles['icon']} onClick={() => (_.isEmpty(o.link) ? toLink(o.name) : __gotoConnect(o.link))}>
-                        <Image width="90" s2x={false} dir="/images/marketplace/wallet" name={o.name} type="png" />
+                        <Image width="90" s2x={false} dir="/images/wallet" name={o.name} type="png" />
                     </p>
                     <p className={styles['text']}>{o.name}</p>
                     {/* <p className={styles['footer']}>

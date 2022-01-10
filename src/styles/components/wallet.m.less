@@ -1,0 +1,57 @@
+@import '../variables.less';
+.connected-wallet {
+    text-align: center;
+    padding-bottom: @padding-md;
+    p {
+        margin: 0;
+        &:first-child {
+            margin-top: @padding-md * 2;
+            font-size: rem(20);
+            color: #807a91;
+            white-space: nowrap;
+            span {
+                padding-left: @padding-xs;
+                color: @blue-color;
+                cursor: pointer;
+            }
+        }
+    }
+    .footer {
+        margin: @padding-md * 2 @padding-md 0 @padding-md;
+        border-top: 1px solid #383541;
+        padding: @padding-md @padding-md * 2 0 @padding-md*2;
+        button {
+            width: 100%;
+            padding: 0;
+            margin-left: 0;
+        }
+    }
+}
+.unconnected-wallet {
+    text-align: center;
+    padding-bottom: @padding-md*2;
+    > div {
+        width: 50%;
+        display: inline-block;
+    }
+    .text {
+        text-transform: uppercase;
+        line-height: rem(40);
+    }
+    .icon {
+        margin-top: @padding-md;
+        padding: @padding-md 0;
+        line-height: 5em;
+    }
+    .footer {
+        border-top: 1px solid #383541;
+        margin: @padding-md 0;
+        margin-top: @padding-md * 2;
+        padding: @padding-md @padding-md * 2 0 @padding-md*2;
+        button {
+            width: 100%;
+            padding: 0;
+            margin-left: 0;
+        }
+    }
+}

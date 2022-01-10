@@ -2,7 +2,6 @@ import { WalletType } from '@/services/reducers/wallet';
 import { Web3Provider } from '@ethersproject/providers';
 import { InjectedConnector } from '@web3-react/injected-connector';
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
-import { SUPPORTED_CHAINS } from '@/config/constants';
 import { NetworkConnector } from '../NetworkConnector';
 import { AbstractConnector } from '@web3-react/abstract-connector';
 import { DEFAULT_CHAIN } from '@/config/constants';
@@ -12,17 +11,13 @@ const hadMetamaskPlugin: boolean = window.ethereum && window.ethereum.isMetaMask
  * injected connector
  */
 const injected = new InjectedConnector({
-    supportedChainIds: SUPPORTED_CHAINS.filter((o) => process.env.REACT_APP_ENV == o.env).map((o) => o.chainId),
+    supportedChainIds: [DEFAULT_CHAIN.chainId],
 });
 
 export const connector = injected;
 
 export const network = new NetworkConnector({
     urls: { [DEFAULT_CHAIN.chainId]: DEFAULT_CHAIN.rpcUrl },
-});
-export const walletconnect = new WalletConnectConnector({
-    rpc: { [DEFAULT_CHAIN.chainId]: DEFAULT_CHAIN.rpcUrl },
-    qrcode: true,
 });
 
 export const WALLETS_CONNECTORS = [

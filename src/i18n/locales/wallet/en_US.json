@@ -1,0 +1,16 @@
+{
+	"header":{
+		"wallet":{
+			"how-to-install":"How to install?",
+			"link-title":"Connect Wallet",
+			"unlink-title":"Your Wallet",
+			"sign-out":"Sign Out",
+			"wait":"Transaction in progress, please wait.",
+			"transaction-wait":"Transaction in progress, please wait.",
+			"user-cancel":"User Cancelled!",
+			"copy-success":"Address Copied Successfully",
+			"chain-id-error":"The current network is not supported."
+		},
+		"connect-wallet":"Connect Wallet"
+	}
+}

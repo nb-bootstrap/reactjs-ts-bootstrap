@@ -5,9 +5,8 @@ import { useLocalStorage, useTranslation, useWallet } from '@/services';
 import { WALLETS_CONNECTORS } from './connectors';
 import Connected from './status/Connected';
 import Unconnected from './status/Unconnected';
-import Image from '@/components/Image';
+import LocalImage from '@/components/LocalImage';
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core';
-import styles from '@/styles/market/components/market-modal.m.less';
 import { NetworkContextName } from '@/config/constants';
 import { switchNetwork } from '@utils';
 import { DEFAULT_CHAIN } from '@/config/constants';
@@ -15,7 +14,7 @@ import { WalletType } from '@/services/reducers/wallet';
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
 
 const WalletModal = ({ visible, onCancel }: ModalProps): ReactElement => {
-    const { t } = useTranslation('market', 'header.wallet');
+    const { t } = useTranslation('wallet', 'header.wallet');
     const { deactivate } = useWeb3React(NetworkContextName);
     const { deactivate: networkDeactivate, activate } = useWeb3React();
     const { connected } = useWallet();
@@ -71,7 +70,7 @@ const WalletModal = ({ visible, onCancel }: ModalProps): ReactElement => {
     };
     return (
         <>
-            <Modal title={t(connected ? 'unlink-title' : 'link-title')} centered closeIcon={<Image dir="/images/marketplace/common" name="close-x" type="svg" width="20" />} wrapClassName={styles['market-modal']} footer={false} visible={visible} onCancel={onCancel}>
+            <Modal title={t(connected ? 'unlink-title' : 'link-title')} centered closeIcon={<LocalImage dir="/images/wallet" name="close-x" type="svg" width="20" />} footer={false} visible={visible} onCancel={onCancel}>
                 {connected ? <Connected toUnlink={__unlink} /> : <Unconnected toLink={__toLink} />}
             </Modal>
         </>

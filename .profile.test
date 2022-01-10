@@ -1,3 +1,8 @@
-API_HOME=
+API_HOST=
 CDN_URL=
-ENV_NAME=TEST
+ENV=TEST
+CHAIN_ID=4
+CHAIN_RPC_URL=https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161
+CHAIN_NAME=Rinkeby
+CHAIN_EXPLORER=https://rinkeby.etherscan.io
+CHAIN_CONFIRM=1

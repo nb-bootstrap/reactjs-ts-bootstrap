@@ -4,11 +4,11 @@ import '@/styles/common.less';
 import { ReactElement } from 'react';
 
 function App(): ReactElement {
-  return (
-    <Router>
-      <AnimationRoute />
-    </Router>
-  );
+    return (
+        <Router>
+            <AnimationRoute />
+        </Router>
+    );
 }
 
 export default App;

@@ -51,7 +51,6 @@ declare interface WalletChain {
     chainId: number;
     name: string;
     explorer: string;
-    f3kController: string;
     env: 'PRODUCTION' | 'TEST';
     rpcUrl: string;
     confirm: number;
